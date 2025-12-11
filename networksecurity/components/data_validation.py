@@ -20,4 +20,25 @@ class DataValidation:
         except Exception as e:
             raise NetworkSecurityException(e, sys)
         
-    
+    @staticmethod
+    def read_data(file_path) -> pd.DataFrame:
+        try:
+            return pd.read_csv (file_path)
+        except Exception as e:
+            raise NetworkSecurityException(e, sys)
+        
+    def validate_number_of_columns(self, dataframe:pd.DataFrame) -> bool:
+        try:
+            pass
+        except Exception as e:
+            raise NetworkSecurityException(e, sys)
+        
+    def initiate_data_validation(self) -> DataValidationArtifact:
+        try:
+            train_file_path = self.data_ingestion_artifact.trained_file_path
+            test_file_path = self.data_ingestion_artifact.test_file_path
+            
+            train_dataframe = DataValidation.read_data(train_file_path)
+            test_dataframe = DataValidation.read_data(test_file_path)
+        except Exception as e:
+            raise NetworkSecurityException(e, sys)
