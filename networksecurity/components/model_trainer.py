@@ -69,41 +69,31 @@ class ModelTrainer:
         
         model_report:dict = evaluate_models(X_train=X_train, y_train=y_train, X_test=x_test, y_test=y_test, models=models, param=params)
         
-        ## To get best model score from dict
+        ## Get best model score from dict
         best_model_score = max(sorted(model_report.values()))
 
-        ## To get best model name from dict
-
+        ## Get best model name from dict
         best_model_name = list(model_report.keys())[
             list(model_report.values()).index(best_model_score)
         ]
         best_model = models[best_model_name]
         y_train_pred = best_model.predict(X_train)
 
-        classification_train_metric=get_classification_score(y_true=y_train,y_pred=y_train_pred)
+        classification_train_metric = get_classification_score(y_true=y_train, y_pred=y_train_pred)
+
+        y_test_pred = best_model.predict(x_test)
+        classification_test_metric = get_classification_score(y_true=y_test, y_pred=y_test_pred)
         
-        ## Track the experiements with mlflow
-        self.track_mlflow(best_model,classification_train_metric)
-
-
-        y_test_pred=best_model.predict(x_test)
-        classification_test_metric=get_classification_score(y_true=y_test,y_pred=y_test_pred)
-
-        self.track_mlflow(best_model,classification_test_metric)
-
         preprocessor = load_object(file_path=self.data_transformation_artifact.transformed_object_file_path)
             
         model_dir_path = os.path.dirname(self.model_trainer_config.trained_model_file_path)
-        os.makedirs(model_dir_path,exist_ok=True)
+        os.makedirs(model_dir_path, exist_ok=True)
 
-        Network_Model=NetworkModel(preprocessor=preprocessor,model=best_model)
-        save_object(self.model_trainer_config.trained_model_file_path,obj=NetworkModel)
-        #model pusher
-        save_object("final_model/model.pkl",best_model)
-        
+        Network_Model = NetworkModel(preprocessor=preprocessor, model=best_model)
+        save_object(self.model_trainer_config.trained_model_file_path, obj=NetworkModel)
 
         ## Model Trainer Artifact
-        model_trainer_artifact=ModelTrainerArtifact(trained_model_file_path=self.model_trainer_config.trained_model_file_path,
+        model_trainer_artifact = ModelTrainerArtifact(trained_model_file_path=self.model_trainer_config.trained_model_file_path,
                              train_metric_artifact=classification_train_metric,
                              test_metric_artifact=classification_test_metric
                              )
@@ -121,7 +111,7 @@ class ModelTrainer:
             
             x_train, y_train, x_test, y_test = (train_arr[:, :-1], train_arr[:, -1], test_arr[:, :-1], test_arr[:, -1])
             
-            model = self.train_model(x_train, y_train)
+            model = self.train_model(x_train, y_train, x_test, y_test)
             
         except Exception as e:
             raise NetworkSecurityException(e, sys)

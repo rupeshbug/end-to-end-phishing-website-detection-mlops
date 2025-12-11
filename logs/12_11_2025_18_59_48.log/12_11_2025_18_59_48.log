@@ -1,0 +1,29 @@
+[ 2025-12-11 18:59:48,997 ] 16 root - INFO - Initiate Data ingestion
+[ 2025-12-11 18:59:56,946 ] 59 root - INFO - Performed train test split on the dataframe
+[ 2025-12-11 18:59:56,946 ] 65 root - INFO - Exporting train and test file path.
+[ 2025-12-11 18:59:57,003 ] 74 root - INFO - Exported train and test file path.
+[ 2025-12-11 18:59:57,003 ] 18 root - INFO - Data Ingestion completed
+[ 2025-12-11 18:59:57,003 ] 19 root - INFO - ********************
+
+[ 2025-12-11 18:59:57,010 ] 24 root - INFO - Initiate Data Validation
+[ 2025-12-11 18:59:57,095 ] 33 root - INFO - Required number of columns: 2
+[ 2025-12-11 18:59:57,095 ] 34 root - INFO - Number of columns in dataframe: 31
+[ 2025-12-11 18:59:57,095 ] 33 root - INFO - Required number of columns: 2
+[ 2025-12-11 18:59:57,106 ] 34 root - INFO - Number of columns in dataframe: 31
+[ 2025-12-11 18:59:57,267 ] 26 root - INFO - Data Validation completed
+[ 2025-12-11 18:59:57,267 ] 27 root - INFO - ********************
+
+[ 2025-12-11 18:59:57,267 ] 32 root - INFO - Initiate Data Transformation
+[ 2025-12-11 18:59:57,267 ] 43 root - INFO - Entered initiate_data_transformation method of DataTransformation class
+[ 2025-12-11 18:59:57,267 ] 45 root - INFO - Starting data transformation
+[ 2025-12-11 18:59:57,285 ] 34 root - INFO - Entered get_data_transformer_object method of DataTransformation clas
+[ 2025-12-11 18:59:57,303 ] 44 root - INFO - Entered the save_object method of MainUtils class
+[ 2025-12-11 18:59:57,306 ] 48 root - INFO - Exited the save_object method of MainUtils class
+[ 2025-12-11 18:59:57,307 ] 34 root - INFO - Data Transformation completed
+[ 2025-12-11 18:59:57,307 ] 35 root - INFO - ********************
+
+[ 2025-12-11 18:59:57,307 ] 38 root - INFO - Model Training Started
+[ 2025-12-11 19:03:54,850 ] 44 root - INFO - Entered the save_object method of MainUtils class
+[ 2025-12-11 19:03:54,851 ] 48 root - INFO - Exited the save_object method of MainUtils class
+[ 2025-12-11 19:03:54,851 ] 105 root - INFO - Model trainer artifact: ModelTrainerArtifact(trained_model_file_path='Artifacts\\12_11_2025_18_59_48\\model_trainer\\trained_model\\model.pkl', train_metric_artifact=ClassificationMetricArtifact(f1_score=0.991560752414845, precision_score=0.9896488735538868, recall_score=0.993480032599837), test_metric_artifact=ClassificationMetricArtifact(f1_score=0.9718142119888845, precision_score=0.9637795275590552, recall_score=0.9799839871897518))
+[ 2025-12-11 19:03:54,858 ] 42 root - INFO - Model Training artifact created
