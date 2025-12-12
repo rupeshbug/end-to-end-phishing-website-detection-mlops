@@ -48,7 +48,20 @@ This project demonstrates how such a system can be built using proper MLOps prin
 
 #### 🧾 How Prediction Works
 
-The FastAPI inference endpoint accepts a CSV file containing website feature values. This design supports batch predictions, enabling you to classify multiple websites at once (common in real MLOps use cases). The system applies the saved preprocessing pipeline and model to generate phishing/legitimate predictions and returns the results as an HTML table or downloadable CSV.
+The FastAPI inference endpoint accepts a CSV file containing website feature values. This design supports batch predictions, enabling you to classify multiple websites at once.
+
+After uploading the CSV and clicking Predict, the API:
+
+1. Applies the saved preprocessing pipeline
+
+2. Runs the trained model on all rows
+
+3. Returns an HTML table that includes:
+
+- Input feature values
+- Corresponding predictions (0 = phishing, 1 = legitimate)
+
+You can also download the prediction output.
 
 ### 🛠️ Tech Stack & Tools Used
 
