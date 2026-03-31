@@ -481,6 +481,26 @@ Longer version:
 
 > The dataset does not contain raw website pages. Instead, it contains phishing-related signals such as suspicious URL structure, domain registration patterns, SSL state, link behavior, form behavior, redirect indicators, and reputation signals. The core achievement of the project is building a modular ML and MLOps workflow around that data, including validation, preprocessing, model comparison, tracking, packaging, and deployment.
 
+## Interview answer: "Tell me about this project"
+
+### Main answer
+
+> This project is an end-to-end phishing website classification system built using a pre-engineered cybersecurity feature dataset. The dataset contains signals related to suspicious URL structure, domain characteristics, SSL state, redirect behavior, form behavior, and reputation indicators, and the goal is to classify websites as phishing or legitimate.
+>
+> The main contribution of the project is the full ML and MLOps workflow around that data. The pipeline ingests the dataset from MongoDB, validates the schema and checks for drift, transforms the data with preprocessing, trains and compares multiple classical machine learning models, tracks experiments with MLflow, saves the final artifacts, and serves batch predictions through a FastAPI application.
+>
+> The project also includes Docker packaging and an AWS deployment workflow using ECR and EC2. One important point is that the dataset is already feature-engineered, so the project is best described as phishing classification using engineered security features rather than raw live website analysis. From an engineering perspective, the project was valuable because it moved beyond notebook experimentation into modular code, pipeline orchestration, artifact management, deployment, and end-to-end system design.
+
+### Shorter answer
+
+> This is an end-to-end ML and MLOps project for phishing website classification using a tabular feature dataset. The work includes modular pipeline components for ingestion, validation, transformation, training, tracking, and deployment, with batch inference served through FastAPI. The strongest part of the project is the production-style ML workflow built around meaningful phishing-related features.
+
+### If asked, "What was personally learned from this project?"
+
+Suggested answer:
+
+> The most important learning was the transition from notebook-based machine learning to building a complete ML system. This project required thinking in terms of components, configs, artifacts, reproducible preprocessing, experiment tracking, and deployment rather than only model accuracy. It also helped build confidence around MLOps concepts such as pipeline structure, packaging, and serving.
+
 ## Final summary
 
 The correct understanding of this repository is:
